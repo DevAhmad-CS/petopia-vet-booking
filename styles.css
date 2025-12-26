@@ -1,0 +1,993 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Text selection color */
+::selection {
+    background-color: #FF9C00;
+    color: black;
+}
+
+::-moz-selection {
+    background-color: #FF9C00;
+    color: black;
+}
+
+/* Unified border-radius for all elements in body */
+body * {
+    border-radius: 8px;
+}
+
+/* Override for specific elements that need different radius */
+.adopt-btn {
+    border-radius: 50px !important;
+}
+
+.vet-checkmark {
+    border-radius: 50% !important;
+}
+
+.vet-experience {
+    border-radius: 20px !important;
+}
+
+/* All buttons in step-content should have border-radius: 8px */
+.step-content button,
+.step-content .next-btn,
+.step-content .back-btn,
+.step-content .book-btn,
+.step-content .timeslot-btn {
+    border-radius: 8px !important;
+}
+
+/* Reset for elements that shouldn't have border-radius */
+body,
+html,
+img,
+svg,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    direction: ltr;
+    line-height: 1.6;
+}
+
+/* Header */
+.header {
+    padding: 1.2rem 3rem;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.nav-link {
+    color: #FF9C00;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    padding: 0.3rem 0.5rem;
+    border-radius: 8px;
+}
+
+.nav-link:hover {
+    color: #6c00ff;
+}
+
+.dropdown-arrow {
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+}
+
+.adopt-btn {
+    background-color: #FF9C00;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.adopt-btn:hover {
+    background-color: #6c00ff;
+    transform: scale(1.05);
+}
+
+.nav-link.adopt-btn {
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 0 3rem;
+    min-height: calc(100vh - 200px);
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    width: 100%;
+}
+
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background: white;
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-height: 650px;
+}
+
+.booking-container-inner {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+/* Steps Sidebar */
+.steps-sidebar {
+    width: 220px;
+    height: 246px;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    padding: 1rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    justify-content: space-between;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    border: 1px solid #e5e5e5;
+    flex: 1;
+    min-height: 0;
+}
+
+.step-item.future-step {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.step-item:hover {
+    background-color: #f9f9f9;
+    transform: translateX(2px);
+}
+
+.step-item.active {
+    background-color: white;
+    border-color: #e5e5e5;
+}
+
+.step-item.active .step-text {
+    color: #FF9C00;
+}
+
+.step-item.active .step-icon {
+    background-color: transparent;
+    color: #FF9C00;
+}
+
+.step-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.step-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* When step-item is active, icon should have orange color */
+.step-item.active .step-icon.active {
+    background-color: transparent;
+    color: #FF9C00;
+}
+
+/* When step-item is not active but icon has active class (shouldn't happen, but just in case) */
+.step-item:not(.active) .step-icon.active {
+    background-color: #FF9C00;
+    color: white;
+    border-radius: 8px;
+}
+
+.step-text {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.85rem;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    flex: 1;
+}
+
+.step-text.active {
+    color: #FF9C00;
+    font-weight: 600;
+}
+
+/* Content Area */
+.content-area {
+    flex: 1;
+    position: relative;
+    min-height: 600px;
+    width: 100%;
+}
+
+.step-content {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+}
+
+.step-content.active {
+    display: block;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+}
+
+.section-title {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.3;
+}
+
+/* Vets Selection */
+.vets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.vet-card {
+    background: white;
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.vet-card:hover {
+    border-color: #FF9C00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 156, 0, 0.12);
+}
+
+.vet-card.selected {
+    border-color: #FF9C00;
+    border-width: 2px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(255, 156, 0, 0.15);
+}
+
+.vet-checkmark {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 28px;
+    height: 28px;
+    background-color: #FF9C00;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.vet-checkmark svg {
+    width: 16px;
+    height: 16px;
+}
+
+.vet-card.selected .vet-checkmark {
+    display: flex;
+}
+
+.vet-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.vet-card.selected .vet-icon {
+    color: #FF9C00;
+}
+
+.vet-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.vet-specialty {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.vet-area {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.vet-experience {
+    font-size: 0.9rem;
+    color: #FF9C00;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    padding: 0.4rem 1rem;
+    background-color: rgba(255, 156, 0, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.vet-price {
+    font-size: 1rem;
+    color: #FF9C00;
+    font-weight: 600;
+    margin-top: 0.8rem;
+    padding: 0.5rem 1.2rem;
+    background-color: #FF9C00;
+    color: white;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Date & Time */
+.datetime-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.calendar-section {
+    flex: 1;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.calendar-nav {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.calendar-nav:hover {
+    color: #FF9C00;
+}
+
+.calendar-month {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.calendar-day-name {
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+    padding: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: white;
+}
+
+.calendar-day:hover {
+    background-color: #fff8f5;
+}
+
+.calendar-day.other-month {
+    color: #ccc;
+}
+
+.calendar-day.selected {
+    background-color: #FF9C00;
+    color: white;
+    font-weight: 600;
+}
+
+.timeslot-section {
+    flex: 1;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.timeslot-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.timeslot-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.timeslot-group-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #666;
+}
+
+.timeslot-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timeslot-btn {
+    padding: 0.8rem 1rem;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+.timeslot-btn:hover {
+    border-color: #FF9C00;
+    background-color: #fff8f5;
+}
+
+.timeslot-btn.selected {
+    background-color: #FF9C00;
+    color: white;
+    border-color: #FF9C00;
+}
+
+/* Basic Details Form */
+.details-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select:not(.country-code) {
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: inherit;
+    background: white;
+    width: 100%;
+}
+
+.form-group select:not(.country-code) {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    padding-right: 2.5rem;
+}
+
+.form-select {
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: inherit;
+    background: white;
+    width: 100%;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    padding-right: 2.5rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:not(.country-code):focus,
+.form-select:focus {
+    outline: none;
+    border-color: #FF9C00;
+}
+
+.phone-input {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+}
+
+.country-code {
+    padding: 0.8rem 0.6rem;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 100px;
+    max-width: 120px;
+    flex-shrink: 0;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    padding-right: 2rem;
+}
+
+.phone-input input {
+    flex: 1;
+    min-width: 0;
+}
+
+.country-code:focus {
+    outline: none;
+    border-color: #FF9C00 !important;
+}
+
+.phone-input input {
+    flex: 1;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Summary */
+.summary-content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.summary-illustration {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary-illustration svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.summary-illustration svg circle,
+.summary-illustration svg path {
+    stroke: #FF9C00;
+}
+
+.summary-subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.summary-details {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: left;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.summary-item.total {
+    border-top: 2px solid #e0e0e0;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+}
+
+.summary-label {
+    font-weight: 600;
+    color: #666;
+}
+
+.summary-value {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.summary-value.total-amount {
+    color: #FF9C00;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.summary-divider {
+    height: 1px;
+    background: #e0e0e0;
+    margin: 1rem 0;
+}
+
+/* Navigation Buttons */
+.step-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+    gap: 1rem;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: #FF9C00;
+}
+
+.next-btn,
+.book-btn {
+    background-color: #FF9C00;
+    color: white;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 8px !important;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.next-btn:hover,
+.book-btn:hover {
+    background-color: #ff8a00;
+}
+
+/* Language Selector */
+.language-selector {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #1a1a1a;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.flag {
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .booking-container {
+        flex-direction: column;
+    }
+
+    .steps-sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .datetime-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .vets-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Step item cursor styles */
+.step-item {
+    cursor: pointer;
+}
+
+.step-item.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Confirmation Page Styles */
+.confirmation-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.confirmation-icon {
+    margin-bottom: 1.5rem;
+}
+
+.booking-id {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.confirmation-subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.confirmation-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.confirmation-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0 1.5rem;
+    border-right: 1px solid #e5e5e5;
+}
+
+.confirmation-detail-item:last-child {
+    border-right: none;
+}
+
+.detail-label {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.detail-value {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.calendar-buttons {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e5e5e5;
+}
+
+.calendar-buttons-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.calendar-buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.calendar-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.calendar-btn:hover {
+    border-color: #FF9C00;
+    background: #fff8f0;
+}
+
+.cal-icon {
+    font-weight: bold;
+    color: #4285f4;
+}
+
+.cal-icon.yahoo {
+    color: #6001d2;
+}
+
+.cal-icon.outlook {
+    color: #0078d4;
+}
+
+.cal-icon.apple {
+    color: #333;
+}
+

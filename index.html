@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETOPIA - Book an Appointment</title>
+    <link rel="icon" type="image/png" href="images/35f640d3-04b2-4fa5-9443-3ebde41df10e-1-1.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/35f640d3-04b2-4fa5-9443-3ebde41df10e-1-1.png" alt="PETOPIA Logo" class="logo-img">
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Who We Are</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="index.html" class="nav-link">Vet booking</a>
+                <a href="#" class="nav-link">Store</a>
+                <a href="index.html" class="nav-link">Community</a>
+                <a href="my-bookings.html" class="nav-link adopt-btn">My Bookings</a>
+            </nav>
+            
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="booking-container">
+            <div class="booking-container-inner">
+                <div class="sidebar-section">
+                    <h1 class="page-title">Book an Appointment</h1>
+                    <!-- Left Sidebar - Steps -->
+                    <aside class="steps-sidebar">
+                    <div class="step-item active" data-step="vets" onclick="handleSidebarClick('vets')">
+                        <div class="step-icon active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <span class="step-text active">Vets</span>
+                    </div>
+                    <div class="step-item" data-step="datetime" onclick="handleSidebarClick('datetime')">
+                        <div class="step-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="step-text">Date & Time</span>
+                    </div>
+                    <div class="step-item" data-step="details" onclick="handleSidebarClick('details')">
+                        <div class="step-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="step-text">Basic Details</span>
+                    </div>
+                    <div class="step-item" data-step="summary" onclick="handleSidebarClick('summary')">
+                        <div class="step-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="step-text">Summary</span>
+                    </div>
+                    </aside>
+                </div>
+
+                <!-- Right Content Area -->
+                <div class="content-area">
+                <!-- Step 1: Vets Selection -->
+                <div class="step-content active" id="vets-step">
+                    <h2 class="section-title">Select Vet</h2>
+                    <div class="vets-grid">
+                        <div class="vet-card" data-vet="omar">
+                            <div class="vet-checkmark">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="vet-icon">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="vet-name">Dr. Omar Awwad</h3>
+                            <p class="vet-specialty">Veterinarian</p>
+                            <p class="vet-area">Amman</p>
+                            <p class="vet-experience">Experience: 8 years</p>
+                            <p class="vet-price">Price: 12.00 د</p>
+                        </div>
+                        <div class="vet-card" data-vet="lina">
+                            <div class="vet-checkmark">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="vet-icon">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="vet-name">Dr. Lina Haddad</h3>
+                            <p class="vet-specialty">Veterinarian</p>
+                            <p class="vet-area">Amman</p>
+                            <p class="vet-experience">Experience: 6 years</p>
+                            <p class="vet-price">Price: 10.00 د</p>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="back-btn" style="visibility: hidden;">← Go Back</button>
+                        <button class="next-btn" onclick="goToStep('datetime')">Next: Date & Time →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Date & Time Selection -->
+                <div class="step-content" id="datetime-step">
+                    <h2 class="section-title">Date & Time</h2>
+                    <div class="datetime-container">
+                        <div class="calendar-section">
+                            <div class="calendar-header">
+                                <button class="calendar-nav" onclick="changeMonth(-1)">←</button>
+                                <h3 class="calendar-month" id="calendar-month">January 2026</h3>
+                                <button class="calendar-nav" onclick="changeMonth(1)">→</button>
+                            </div>
+                            <div class="calendar-grid" id="calendar-grid">
+                                <!-- Calendar will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="timeslot-section">
+                            <h3 class="timeslot-title">Time Slot</h3>
+                            <div class="timeslot-groups">
+                                <div class="timeslot-group">
+                                    <h4 class="timeslot-group-title">Morning</h4>
+                                    <div class="timeslot-buttons">
+                                        <button class="timeslot-btn" data-time="09:00-10:00">09:00 am to 10:00 am</button>
+                                        <button class="timeslot-btn" data-time="10:00-11:00">10:00 am to 11:00 am</button>
+                                        <button class="timeslot-btn" data-time="11:00-12:00">11:00 am to 12:00 pm</button>
+                                    </div>
+                                </div>
+                                <div class="timeslot-group">
+                                    <h4 class="timeslot-group-title">Afternoon</h4>
+                                    <div class="timeslot-buttons">
+                                        <button class="timeslot-btn" data-time="12:00-13:00">12:00 pm to 01:00 pm</button>
+                                        <button class="timeslot-btn" data-time="13:00-14:00">01:00 pm to 02:00 pm</button>
+                                        <button class="timeslot-btn" data-time="14:00-15:00">02:00 pm to 03:00 pm</button>
+                                        <button class="timeslot-btn" data-time="15:00-16:00">03:00 pm to 04:00 pm</button>
+                                    </div>
+                                </div>
+                                <div class="timeslot-group">
+                                    <h4 class="timeslot-group-title">Evening</h4>
+                                    <div class="timeslot-buttons">
+                                        <button class="timeslot-btn" data-time="16:00-17:00">04:00 pm to 05:00 pm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="back-btn" onclick="goToStep('vets')">← Go Back</button>
+                        <button class="next-btn" onclick="goToStep('details')">Next: Basic Details →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Basic Details -->
+                <div class="step-content" id="details-step">
+                    <h2 class="section-title">Basic Details</h2>
+                    <form class="details-form" id="details-form">
+                        <div class="form-group">
+                            <label for="firstname">Firstname *</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Enter your firstname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Lastname *</label>
+                            <input type="text" id="lastname" name="lastname" placeholder="Enter your lastname" required>
+                            <span class="error-message" id="lastname-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <div class="phone-input">
+                                <select id="country-code" class="country-code">
+                                    <option value="+962">🇯🇴 +962</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                </select>
+                                <input type="tel" id="phone" name="phone" placeholder="07 9012 3456" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="petname">Pet Name *</label>
+                            <input type="text" id="petname" name="petname" placeholder="Enter your pet's name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pettype">Pet Type *</label>
+                            <select id="pettype" name="pettype" class="form-select" required>
+                                <option value="">Select pet type</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Dog">Dog</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Reason for Visit *</label>
+                            <select id="reason" name="reason" class="form-select" required>
+                                <option value="">Select reason for visit</option>
+                                <option value="General Checkup">General Checkup</option>
+                                <option value="Vaccination">Vaccination</option>
+                                <option value="Surgery">Surgery</option>
+                                <option value="Emergency">Emergency</option>
+                                <option value="Grooming">Grooming</option>
+                                <option value="Dental Care">Dental Care</option>
+                                <option value="Skin Issues">Skin Issues</option>
+                                <option value="Behavioral Consultation">Behavioral Consultation</option>
+                                <option value="Nutritional Advice">Nutritional Advice</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="petcondition">Pet Condition / Notes</label>
+                            <textarea id="petcondition" name="petcondition" rows="4" placeholder="Enter pet condition or notes"></textarea>
+                        </div>
+                    </form>
+                    <div class="step-navigation">
+                        <button class="back-btn" onclick="goToStep('datetime')">← Go Back</button>
+                        <button class="next-btn" onclick="goToStep('summary')">Next: Summary →</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Summary -->
+                <div class="step-content" id="summary-step">
+                    <div class="summary-content">
+                        <div class="summary-illustration">
+                            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="60" cy="60" r="50" stroke="#FF6B35" stroke-width="3"/>
+                                <path d="M40 60L55 75L80 45" stroke="#FF6B35" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="section-title">Summary</h2>
+                        <p class="summary-subtitle">Your appointment booking summary.</p>
+                        <div class="summary-details">
+                            <div class="summary-item">
+                                <span class="summary-label">Customer</span>
+                                <span class="summary-value" id="summary-customer">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Vet</span>
+                                <span class="summary-value" id="summary-vet">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Date & Time</span>
+                                <span class="summary-value" id="summary-datetime">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Pet Name</span>
+                                <span class="summary-value" id="summary-petname">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Pet Type</span>
+                                <span class="summary-value" id="summary-pettype">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label">Reason</span>
+                                <span class="summary-value" id="summary-reason">-</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-item total">
+                                <span class="summary-label">Total Amount Payable</span>
+                                <span class="summary-value total-amount" id="summary-total">10.00 د</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button class="back-btn" onclick="goToStep('details')">← Go Back</button>
+                        <button class="book-btn" onclick="bookAppointment()">Confirm Booking</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Confirmation / Thank You -->
+                <div class="step-content" id="confirmation-step">
+                    <div class="confirmation-content">
+                        <div class="confirmation-icon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="40" cy="40" r="35" fill="#FF9C00"/>
+                                <path d="M25 40L35 50L55 30" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="58" cy="18" r="3" fill="#FF9C00"/>
+                                <circle cx="62" cy="25" r="2" fill="#FF9C00"/>
+                                <circle cx="18" cy="22" r="2" fill="#FF9C00"/>
+                            </svg>
+                        </div>
+                        <p class="booking-id">Booking ID: <span id="booking-id">#1</span></p>
+                        <h2 class="confirmation-title">Your Appointment Booked successfully!</h2>
+                        <p class="confirmation-subtitle">We have sent your booking information to your email address.</p>
+                        
+                        <div class="confirmation-details">
+                            <div class="confirmation-detail-item">
+                                <span class="detail-label">Service:</span>
+                                <span class="detail-value">Vet Appointment</span>
+                            </div>
+                            <div class="confirmation-detail-item">
+                                <span class="detail-label">Date & Time:</span>
+                                <span class="detail-value" id="confirm-datetime">-</span>
+                            </div>
+                            <div class="confirmation-detail-item">
+                                <span class="detail-label">Customer Name:</span>
+                                <span class="detail-value" id="confirm-customer">-</span>
+                            </div>
+                        </div>
+
+                        <div class="calendar-buttons">
+                            <h3 class="calendar-buttons-title">Add to Calendar</h3>
+                            <div class="calendar-buttons-row">
+                                <button class="calendar-btn" onclick="addToCalendar('google')">
+                                    <span class="cal-icon">G</span> Google Calendar
+                                </button>
+                                <button class="calendar-btn" onclick="addToCalendar('yahoo')">
+                                    <span class="cal-icon yahoo">Y!</span> Yahoo Calendar
+                                </button>
+                                <button class="calendar-btn" onclick="addToCalendar('outlook')">
+                                    <span class="cal-icon outlook">📅</span> Outlook Calendar
+                                </button>
+                                <button class="calendar-btn" onclick="addToCalendar('ical')">
+                                    <span class="cal-icon apple">🍎</span> iCal Calendar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <span class="flag">🇺🇸</span>
+        <span>English</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
